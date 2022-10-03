@@ -1,0 +1,97 @@
+
+
+DATA:
+  data_root: "/media/data/Datasets/graspnet/scenes"
+  train_list:  "/home/bacchin/SemGraspNet/SemGraspNet_venv/FSGGCNN/lists/train.txt"
+  val_list: "/home/bacchin/SemGraspNet/SemGraspNet_venv/FSGGCNN/lists/validation.txt"
+  test_list: '/home/barcellona/workspace/git_repo/ASGNet/custom_inference/new_list/graspnet_test_unseen.txt'
+  class_list:  "/home/bacchin/SemGraspNet/SemGraspNet_venv/FSGGCNN/fsss_grasp_train_val.txt"
+#  query_list: '/home/barcellona/workspace/git_repo/ASGNet/custom_inference/new_list/graspnet_query_seq.txt'
+#  support_list: '/home/barcellona/workspace/git_repo/ASGNet/custom_inference/new_list/graspnet_support_seq.txt'
+  query_class: 33
+  classes: 2
+  mode: 'train'
+  visualize_model_param: True
+  save_images: False
+  save_images_path: "/home/bacchin/SemGraspNet/SemGraspNet_venv/FSGGCNN/saved_images/"
+
+BOTH:
+  train_gpu: [0]
+  workers: 8  # data loader workers
+  batch_size: 8  # batch size for training.
+  batch_size_val: 1 # this version of code only support val batch = 1
+  epochs: 50
+  batches_per_epoch: 2900 #500
+  scale_min: 1  # minimum random scale
+  scale_max: 1.35 # maximum random scale
+  rotate_min: -10  # minimum random rotate
+  rotate_max: 10  # maximum random rotate
+  weight_model:
+  weight_backbone:
+GGCNN:
+  dataset: cornell
+  use-depth: 1
+  use-rgb: 0
+  description: prova
+  outdir: output/models/
+  logdir: tensorboard/
+  vis: False
+  input_channels: 1
+  weight_ggcnn: /home/barcellona/workspace/git_repo/FSGGCNN/initmodel/ggcnn_weights_cornell/ggcnn_epoch_23_cornell_statedict.pt
+
+TRAIN:
+  weight_fs: /home/barcellona/workspace/git_repo/ASGNet/coco/s3_5s_resnet50.pth
+  arch: asgnet
+  layers: 50 # 50 or 101
+  sync_bn: False
+  train_h: 721 #481 #641 #SIZE 720
+  train_w: 1281 #361 #641 #SIZE 1280
+  val_size: 721 #481 #641
+  scale_min_shots: 0.8  # minimum random scale
+  scale_max_shots: 1.25 # maximum random scale
+  rotate_min_shots: -10  # minimum random rotate
+  rotate_max_shots: 10  # maximum random rotate
+  zoom_factor: 8  # zoom factor for final prediction during training, be in [1, 2, 4, 8]
+  ignore_label: 0
+  padding_label: 0
+  aux_weight: 1.0
+  base_lr: 0.005
+  start_epoch: 0
+  power: 0.9 # 0 means no decay
+  momentum: 0.9
+  weight_decay: 0.0001
+  manual_seed: 321
+  print_freq: 5
+  save_freq: 1
+  save_path: exp/asgnet/graspnet/split3_resnet50/model
+  resume: 
+  evaluate: True
+  split: 3
+  shot: 5
+  max_sp: 5
+  train_iter: 10
+  eval_iter: 5
+  pyramid: True
+  ppm_scales: [1.0, 0.5, 0.25, 0.125]
+  fix_random_seed_val: True
+  warmup: False
+  use_coco: False
+  use_split_coco: True
+  resized_val: True
+  ori_resize: True  # use original label for evaluation
+  vgg: False
+
+## deprecated multi-processing training
+Distributed:
+  dist_url: tcp://127.0.0.1:6789
+  dist_backend: 'nccl'
+  multiprocessing_distributed: False
+  world_size: 1
+  rank: 0
+  use_apex: False
+  opt_level: 'O0'
+  keep_batchnorm_fp32:
+  loss_scale:
+
+
+
