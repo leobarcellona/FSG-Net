@@ -19,8 +19,8 @@ from util import transform, config, transform_graspnet
 from skimage.feature import peak_local_max
 from model.model_ggcnn.common import post_process_output, post_process_output2
 
-from model.unet_grasping_divided import UNET_POSITION as fssg_net_pos
-from model.unet_grasping_divided import UNET_ANGLE as fssg_net
+#from model.unet_grasping_divided import UNET_POSITION as fssg_net_pos
+#from model.unet_grasping_divided import UNET_ANGLE as fssg_net
 from model.backbone_pos_angle_width import BACKBONE, WIDTH_HEAD, ANGLE_HEAD, POS_HEAD
 from model.model_asgnet.asgnet_features import AsgnetModel
 
@@ -115,7 +115,7 @@ def get_dataloaders(args):
     train_data = discretized_dataloader.GraspingData(shot=args.shot, data_root=args.data_root,
                                                        data_list=args.train_list, transform=train_transform,
                                                        transform_shots=train_transform_shots, mode='train',
-                                                       data_classes=args.class_list, obj_list=args.partial_train)
+                                                       data_classes=args.class_list)
 
     train_sampler = None
     train_loader = torch.utils.data.DataLoader(train_data, batch_size=args.batch_size, shuffle=True,
@@ -138,7 +138,7 @@ def get_dataloaders(args):
     val_data = discretized_dataloader.GraspingData(shot=args.shot, data_root=args.data_root,
                                                      data_list=args.val_list, transform=val_transform,
                                                      transform_shots=train_transform_shots, mode='val',
-                                                     data_classes=args.class_list, obj_list=args.partial_train)
+                                                     data_classes=args.class_list)
     val_sampler = None
     val_loader = torch.utils.data.DataLoader(val_data, batch_size=args.batch_size_val, shuffle=False,
                                              num_workers=args.workers, pin_memory=True, sampler=val_sampler,
@@ -417,7 +417,7 @@ def run():
 
     device = torch.device(args.device)
 
-    if args.partial_train ==0:
+    if args.partial_train == 0:
         print("TRAINING BACKBONE... ")
         net = BACKBONE(args, vis=args.visualize_model_param)
     else: 

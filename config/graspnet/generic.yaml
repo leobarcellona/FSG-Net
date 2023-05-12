@@ -26,7 +26,7 @@ BOTH:
   scale_max: 1.35 # maximum random scale
   rotate_min: -5  # minimum random rotate
   rotate_max: 5  # maximum random rotate
-  weight_backbone: "/home/bacchin/SemGraspNet/SemGraspNet_venv/FSGGCNN/output/models/220824_1802_pos_regre_angle_seg_width_seg_BACKBONE_ld=0001/epoch_54_val_error_0.12_statedict.pt"
+  weight_backbone: "./output/models/backbones/epoch_54_val_error_0.12_statedict.pt"
   weight_pos: 
   weight_angle: 
   weight_width: 
