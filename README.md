@@ -1,6 +1,16 @@
 # FSG-Net
 
 The work is developed in collaboration with [bach05](https://github.com/bach05) and [albigotta](https://github.com/albigotta).
+Please cite these papers in your publications if FSG-Net helps your research.
+
+    @inproceedings{barcellona2023fsg,
+    title={FSG-Net: a Deep Learning model for Semantic Robot Grasping through Few-Shot Learning},
+    author={Barcellona, Leonardo and Bacchin, Alberto and Gottardi, Alberto and Menegatti, Emanuele and Ghidoni, Stefano},
+    booktitle={2023 IEEE International Conference on Robotics and Automation (ICRA)},
+    pages={1793--1799},
+    year={2023},
+    organization={IEEE}
+    }
 
 ## Work in progress
 
@@ -38,14 +48,3 @@ python3 train.py
 
 [ADD THE CODE FOR TESTING]
 
-## CITATION
-Please cite these papers in your publications if FSG-Net helps your research.
-
-    @inproceedings{barcellona2023fsg,
-    title={FSG-Net: a Deep Learning model for Semantic Robot Grasping through Few-Shot Learning},
-    author={Barcellona, Leonardo and Bacchin, Alberto and Gottardi, Alberto and Menegatti, Emanuele and Ghidoni, Stefano},
-    booktitle={2023 IEEE International Conference on Robotics and Automation (ICRA)},
-    pages={1793--1799},
-    year={2023},
-    organization={IEEE}
-    }
