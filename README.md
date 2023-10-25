@@ -14,11 +14,11 @@ pip install -r requirements.txt
 
 Pre-trained models are available, please refer to the following list:
 
-- Few-Shot Module: LINK, destination folder: `./output/models/fewshot_modules`
-- Backbone: LINK, destination folder: `./output/models/backbones`
-- Quality Head: LINK, destination folder: `./output/models/heads`
-- Angle Head: LINK, destination folder: `./output/models/heads`
-- Width Head: LINK, destination folder: `./output/models/heads`
+- Few-Shot Module: [LINK](https://drive.google.com/file/d/1TWqorlp8rj_6B2rZ1NqXYJyFjBJ38A9V/view?usp=drive_link), destination folder: `./output/models/fewshot_modules`
+- Backbone: [LINK](https://drive.google.com/file/d/11dP--yA4kLwp94O85ZBIX9JTUX7SIHfL/view?usp=drive_link), destination folder: `./output/models/backbones`
+- Quality Head: [LINK](https://drive.google.com/file/d/1Clid9DRfW43TcUMXJKgaLdjJc6hUCbld/view?usp=drive_link), destination folder: `./output/models/heads`
+- Angle Head: [LINK](https://drive.google.com/file/d/1CJNL2jDRcv_m8mh0T73khTTuiQcLRM2F/view?usp=drive_link), destination folder: `./output/models/heads`
+- Width Head: [LINK](https://drive.google.com/file/d/1XboYx4olOdyomchxo73cO7Kf8ajs9l_5/view?usp=drive_link), destination folder: `./output/models/heads`
  folder. 
 
 ## Training
